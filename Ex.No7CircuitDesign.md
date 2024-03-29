@@ -1,6 +1,6 @@
 # Ex.No: 7  Logic Programming –  Logic Circuit Design
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 19-03-24                                                                           
+### REGISTER NUMBER : 212221040057
 ### AIM: 
 To write a logic program to design a circuit like half adder and half subtractor.
 ###  Algorithm:
@@ -15,18 +15,61 @@ To write a logic program to design a circuit like half adder and half subtractor
 
 ### Program:
 
+## HALF ADDER , HALF SUBTRACTOR:
+```
+and(0,0,0).
+and(0,1,0).
+and(1,1,1).
+and(1,0,0).
+xor(0,0,0).
+xor(0,1,1).
+xor(1,0,1).
+xor(1,1,0).
+not(0,1).
+not(1,0).
+halfadder(A,B,S,C):-
+    xor(A,B,S),
+    and(A,B,C).
+halfsubtractor(A,B,Diff,Bo):-
+    xor(A,B,Diff),
+    not(A,X),
+    and(B,X,Bo).
 
+```
+## FULL ADDER:
+```
+full_adder(A, B, Cin, Sum, Cout) :-
+    half_adder(A, B, S1, C1),
+    half_adder(S1, Cin, Sum, C2),
+    or(C1, C2, Cout).
 
+half_adder(A, B, Sum, Carry) :-
+    xor(A, B, Sum),
+    and(A, B, Carry).
 
+xor(0, 0, 0).
+xor(0, 1, 1).
+xor(1, 0, 1).
+xor(1, 1, 0).
 
+and(0, 0, 0).
+and(0, 1, 0).
+and(1, 0, 0).
+and(1, 1, 1).
 
-
-
-
-
+or(0, 0, 0).
+or(0, 1, 1).
+or(1, 0, 1).
+or(1, 1, 1).
+```
 
 ### Output:
 
+![Screenshot (536)](https://github.com/DrUmaRaniV/AI_Lab_2023-24/assets/103128410/073e9736-3e27-443f-bf2e-4e6cec3eb3b6)
+
+![Screenshot (537)](https://github.com/DrUmaRaniV/AI_Lab_2023-24/assets/103128410/605073e5-3576-45b3-bfd0-c0c8e2cb918b)
+
+![Screenshot (538)](https://github.com/DrUmaRaniV/AI_Lab_2023-24/assets/103128410/041f5577-f183-4209-be6b-4184bc59de0c)
 
 
 ### Result:
